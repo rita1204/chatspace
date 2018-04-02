@@ -3,7 +3,6 @@
 
 |Column    |Type       |Options                          |
 |----------|-----------|---------------------------------|
-|id        |integer    |                                 |
 |name      |string     |null:false,unique:true,index:true|
 |email     |string     |null:false,unique:true           |
 |password  |string     |null:false                       |
@@ -18,7 +17,6 @@
 
 |Column       |Type       |Options               |
 |-------------|-----------|----------------------|
-|id           |integer    |                      |
 |name         |string     |null:false,unique:true|
 
 
@@ -34,7 +32,6 @@
 
 |Column       |Type       |Options                    |
 |-------------|-----------|---------------------------|
-|id           |integer    |                           |
 |group_id     |reference  |null:false,foreign_key:true|
 |user_id      |reference  |null:false,foreign_key:true|
 
@@ -50,13 +47,12 @@
 
 ##messages_table
 
-|Column       |Type       |Options                    |
-|-------------|-----------|---------------------------|
-|id           |integer    |                           |
-|body         |text       |null:false                 |
-|image        |string     |                           |
-|user_id      |integer    |null:false,foreign_key:true|
-|groups_id    |integer    |null:false,foreign_key:true|
+|Column       |Type         |Options                    |
+|-------------|-------------|---------------------------|
+|body         |text         |null:false                 |
+|image        |string       |                           |
+|user_id      |reference    |null:false,foreign_key:true|
+|groups_id    |reference    |null:false,foreign_key:true|
 
 
 ###Asociation
