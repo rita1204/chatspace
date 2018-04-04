@@ -1,0 +1,28 @@
+.sidebar{
+  width:300px;
+  height:100vh;
+  background-color: #2f3e51;
+  float:left;
+  .header{
+    background-color:#253141;
+    color:white;
+    padding:0 20px;
+    &__name{
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 100px;
+      display: inline-block;
+    }
+    &__lists{
+      line-height: 90px;
+      display:inline-block;
+      float:right;
+        .list{
+          padding-right:5px;
+          float:right;
+          color:white;
+          display:inline-block;
+        }
+    }
+  }
+}
