@@ -3,7 +3,7 @@ html,body,.wrapper{
 }
 
 .message-bar{
-  background-color:#38AEF0;
+  background-color:$skyblue;
   text-align: center;
   color:white;
 }
@@ -14,9 +14,8 @@ html,body,.wrapper{
   clear:both;
 }
 
-.white{
-  color:white;
-}
+
+
 
 button{
   border: none;
