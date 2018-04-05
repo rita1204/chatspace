@@ -4,8 +4,7 @@
 |Column    |Type       |Options                          |
 |----------|-----------|---------------------------------|
 |name      |string     |null:false,unique:true,index:true|
-|email     |string     |null:false,unique:true           |
-|password  |string     |null:false                       |
+
 
 ###Asociation
 - has_many :messages
@@ -49,7 +48,7 @@
 
 |Column       |Type         |Options                    |
 |-------------|-------------|---------------------------|
-|body         |text         |null:false                 |
+|body         |text         |                           |
 |image        |string       |                           |
 |user_id      |reference    |null:false,foreign_key:true|
 |groups_id    |reference    |null:false,foreign_key:true|

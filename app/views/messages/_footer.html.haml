@@ -1,0 +1,13 @@
+.footer
+  .footer-box.clearfix
+    %form{:action =>"#", :method => "post"}
+      .footer-text
+        %input{:type => "text",:placeholder => "type a message", class:"footer-text__field"}
+        .footer-photo
+          %label.upload-label{for: "upload-icon"}
+            %i.fa.fa-picture-o.icon
+            / = f.file_field :image, id: "upload-icon"
+      .footer-btn
+        %button{:type => "submit",:value => "SEND",class:"footer-btn__send"}
+          Send
+

@@ -1,0 +1,20 @@
+.main-container
+  .chat
+    .header
+      .left-header
+        .left-header__title
+          GROUP
+        %ul.left-header__members.clearfix
+          MEMBERS:
+          %li.member
+            inu
+      .right-header
+        %form
+        %a{class: "right-header__button",href:"https://www.google.co.jp"}
+          Edit
+    .comment-container
+      =render"comment"
+      =render"comment"
+      =render"footer"
+
+

@@ -1,0 +1,16 @@
+.group {
+    &__lists {
+        padding: 0 20px;
+        color: white;
+
+        .title {
+            padding-top: 20px;
+        }
+
+        .text {
+            padding-top: 5px;
+            padding-bottom: 40px;
+            font-size: 12px;
+        }
+    }
+}
