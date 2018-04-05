@@ -59,3 +59,4 @@
 - belongs_to :group
 
 
+
