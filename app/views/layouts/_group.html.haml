@@ -2,4 +2,4 @@
 - current_user.groups.each do |group|
   %ul.group__lists
     %li.title= group.name
-    %li.text メッセージはまだありません
+    %li.text= group.show_last_message

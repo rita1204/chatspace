@@ -1,5 +1,10 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:edit,:update]
+  before_action :set_group
+
+  def index
+    @message = Message.new
+    @messages = @group.messages.includes(:user)
+  end
   def new
     @group = Group.new
     @group.users << current_user
@@ -31,6 +36,6 @@ class GroupsController < ApplicationController
   end
 
   def set_group
-    @group = Group.find(params[:id])
+    @group = Group.find(params[:group_id])
   end
 end

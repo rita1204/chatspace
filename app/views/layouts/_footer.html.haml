@@ -1,13 +1,11 @@
 .footer
   .footer-box.clearfix
-    %form{:action =>"#", :method => "post"}
+    =form_for [@group,@message] do |f|
       .footer-text
-        %input{:type => "text",:placeholder => "type a message", class:"footer-text__field"}
+        =f.text_field :body,class:"footer-text__field",placeholder:"type a message"
         .footer-photo
-          %label.upload-label{for: "upload-icon"}
-            %i.fa.fa-picture-o.icon
-            / = f.file_field :image, id: "upload-icon"
+          =f.label :"upload-icon",class:"upload-label" do
+            = fa_icon 'picture-o', class: 'icon'
+            = f.file_field :image, class: 'hidden'
       .footer-btn
-        %button{:type => "submit",:value => "SEND",class:"footer-btn__send"}
-          Send
-
+        =f.submit "Send",class:"footer-btn__send"
