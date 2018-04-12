@@ -4,8 +4,11 @@
       .footer-text
         =f.text_field :body,class:"footer-text__field",placeholder:"type a message"
         .footer-photo
-          =f.label :"upload-icon",class:"upload-label" do
+          =f.label :image do
             = fa_icon 'picture-o', class: 'icon'
-            = f.file_field :image, class: 'hidden'
+          = f.file_field :image,style:"display:none;"
       .footer-btn
         =f.submit "Send",class:"footer-btn__send"
+
+
+
