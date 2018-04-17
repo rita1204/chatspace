@@ -1,8 +1,9 @@
-.comment
-  .comment__header.clearfix
-    .comment__header__title
-      %p pikachu
-    .comment__header__date 
-      %p 1998/09/30 06:43:23
-  .comment__content
-    %p テストコメントです
+- @messages.each do |message|
+  .comment
+    .comment__header.clearfix
+      .comment__header__title
+        %p= message.user.username
+      .comment__header__date
+        %p= message.created_at
+    .comment__content
+      %p= message.body

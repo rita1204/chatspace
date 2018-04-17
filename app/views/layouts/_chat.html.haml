@@ -3,17 +3,17 @@
     .header
       .left-header
         .left-header__title
-          GROUP
+          =@group.name
         %ul.left-header__members.clearfix
           MEMBERS:
           %li.member
-            inu
+            -@group.users.each do |user|
+              = user.username
       .right-header
         %form
         %a{class: "right-header__button",href:"https://www.google.co.jp"}
           Edit
     .comment-container
-      =render"layouts/comment"
       =render"layouts/comment"
       =render"layouts/footer"
 

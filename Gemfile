@@ -40,11 +40,17 @@ gem 'erb2haml'
 gem "font-awesome-rails"
 gem 'devise'
 gem 'rails-i18n'
+gem 'carrierwave', '~> 1.0'
+gem 'mini_magick'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'pry-rails'
+  gem 'rspec-rails', '~> 3.7'
+  gem 'rails-controller-testing'
+  gem "factory_girl_rails", "~> 4.0"
+  gem 'faker'
 end
 
 group :development do
