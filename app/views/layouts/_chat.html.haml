@@ -7,7 +7,8 @@
         %ul.left-header__members.clearfix
           MEMBERS:
           %li.member
-            =@group.users.name
+            -@group.users.each do |user|
+              = user.username
       .right-header
         %form
         %a{class: "right-header__button",href:"https://www.google.co.jp"}

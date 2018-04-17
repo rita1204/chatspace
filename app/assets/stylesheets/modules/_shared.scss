@@ -2,6 +2,13 @@ html, body, .wrapper {
     height: 100%;
 }
 
+li{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+
 .message-bar {
     background-color: $skyblue;
     text-align: center;
