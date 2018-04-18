@@ -1,12 +1,12 @@
 .footer
   .footer-box.clearfix
-    =form_for [@group,@message] do |f|
+    =form_for [@group,@message],html:{id: "new_message"} do |f|
       .footer-text
         =f.text_field :body,class:"footer-text__field",placeholder:"type a message"
         .footer-photo
           =f.label :image do
             = fa_icon 'picture-o', class: 'icon'
-          = f.file_field :image,style:"display:none;"
+          = f.file_field :image,style:"display:none;",class: "hidden"
       .footer-btn
         =f.submit "Send",class:"footer-btn__send"
 
