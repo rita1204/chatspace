@@ -3,14 +3,12 @@
 
 $(function(){
   function buildHTML(message){
-    var contents = `<div class="contents">
-                      ${message.body}
-                      </div>`;
     if (`${message.image.url}` != "null") {
-      contents = `<div class="contents">
-                      ${message.body}
-                  </div>
+      var contents = `
                   <img src = "${message.image.url}">`
+    }
+    else {
+      var contents = ``
     }
     var html = `<div class="comment">
                   <div class="comment__header clearfix">
@@ -25,7 +23,10 @@ $(function(){
                       </p>
                     </div>
                   </div>
-                  <div class="comment__content">`
+                  <div class="comment__content">
+                    <div class="contents">
+                        ${message.body}
+                    </div>`
                     + contents +
                   `</div>
                 </div>`
