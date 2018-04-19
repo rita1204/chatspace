@@ -41,3 +41,4 @@ class GroupsController < ApplicationController
     @group = Group.find(id[0])
   end
 end
+

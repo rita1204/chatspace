@@ -6,9 +6,6 @@
         .footer-photo
           =f.label :image do
             = fa_icon 'picture-o', class: 'icon'
-          = f.file_field :image,style:"display:none;"
+          = f.file_field :image,style:"display:none;",class: "hidden"
       .footer-btn
         =f.submit "Send",class:"footer-btn__send"
-
-
-

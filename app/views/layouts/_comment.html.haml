@@ -6,4 +6,6 @@
       .comment__header__date
         %p= message.created_at
     .comment__content
-      %p= message.body
+      .contents
+        = message.body
+      = image_tag message.image.url if message.image.present?
