@@ -3,13 +3,7 @@
 
 $(function(){
   function buildHTML(message){
-    if (`${message.image.url}` != "null") {
-      var contents = `
-                  <img src = "${message.image.url}">`
-    }
-    else {
-      var contents = ``
-    }
+    var contents = `${message.image.url}` != "null" ? `<img src = "${message.image.url}">` : ``
     var html = `<div class="comment">
                   <div class="comment__header clearfix">
                     <div class="comment__header__title">
@@ -57,6 +51,4 @@ $(function(){
       alert('error');
     })
   })
-
-
 })
