@@ -3,8 +3,10 @@ class GroupsController < ApplicationController
 
   def index
     @message = Message.new
-    @messages = @group.messages.includes(:user)
-    @groups = current_user.groups
+    if !current_user.groups.empty?
+      @messages = @group.messages.includes(:user)
+      @groups = current_user.groups
+    end
   end
   def new
     @group = Group.new
@@ -12,6 +14,8 @@ class GroupsController < ApplicationController
   end
 
   def create
+    ##add current_user
+    params[:group][:user_ids].unshift(current_user.id)
     @group = Group.new(group_params)
     if @group.save
       redirect_to root_path,notice:"グループを作成しました"
@@ -37,8 +41,9 @@ class GroupsController < ApplicationController
   end
 
   def set_group
-    id = current_user.group_ids
-    @group = Group.find(id[0])
+    if !current_user.groups.empty?
+      id = current_user.group_ids
+      @group = Group.find(id.last)
+    end
   end
 end
-
