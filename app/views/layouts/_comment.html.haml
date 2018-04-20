@@ -1,5 +1,5 @@
 - @messages.each do |message|
-  .comment
+  .comment{data:{ id: message.id}}
     .comment__header.clearfix
       .comment__header__title
         %p= message.user.username
