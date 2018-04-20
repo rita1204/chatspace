@@ -1,18 +1,19 @@
-.main-container
-  .chat
-    .header
-      .left-header
-        .left-header__title
-          =@group.name
-        %ul.left-header__members.clearfix
-          MEMBERS:
-          %li.member
-            -@group.users.each do |user|
-              = user.username
-      .right-header
-        %form
-        %a{class: "right-header__button",href:"https://www.google.co.jp"}
-          Edit
-    .comment-container
-      =render"layouts/comment"
-    =render"layouts/footer"
+-if !current_user.groups.empty?
+  .main-container
+    .chat
+      .header
+        .left-header
+          .left-header__title
+            =@group.name
+          %ul.left-header__members.clearfix
+            MEMBERS:
+            %li.member
+              -@group.users.each do |user|
+                = user.username
+        .right-header
+          %form
+          %a{class: "right-header__button",href:"https://www.google.co.jp"}
+            Edit
+      .comment-container
+        =render"layouts/comment"
+      =render"layouts/footer"
