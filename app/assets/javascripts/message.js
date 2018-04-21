@@ -1,10 +1,7 @@
-//form => new_message
-//input => footer-text__field
-
 $(function(){
   function buildHTML(message){
-    var contents = `${message.image.url}` != "null" ? `<img src = "${message.image.url}">` : ``
-    var html = `<div class="comment">
+    var image = `${message.image.url}` != "null" ? `<img src = "${message.image.url}">` : ``
+    var html = `<div class="comment" data-id="${message.id}">
                   <div class="comment__header clearfix">
                     <div class="comment__header__title">
                       <p>
@@ -21,10 +18,15 @@ $(function(){
                     <div class="contents">
                         ${message.body}
                     </div>`
-                    + contents +
+                    + image +
                   `</div>
                 </div>`
     return html;
+  }
+
+  function autoScroll (){
+    var messageContainer = $('.comment')[0];
+    messageContainer.scrollTop = messageContainer.scrollHeight - messageContainer.clientHeight
   }
 
   $('#new_message').on('submit',function(e){
@@ -51,4 +53,30 @@ $(function(){
       alert('error');
     })
   })
-})
+
+  var interval = setInterval(function(){
+    if(window.location.href.match(/\/groups\/\d+\/messages/)){
+      var id = $('.comment').last().data('id');
+      $.ajax({
+        url: location.href.json,
+        type: 'GET',
+        data: { id: id },
+        dataType: 'json'
+      })
+      .done(function(json){
+        var insertHTML = "";
+        json.forEach(function(message){
+          if(message.id > id){
+            insertHTML += buildHTML(message);
+            $(".comment-container").append(insertHTML);
+            $('.comment-container').animate({scrollTop:$('.comment').last().offset().top});
+          }
+        })
+      })
+      .fail(function(data){
+        alert('error:auto update');
+      });
+    } else {
+      clearInterval(interval);
+    }},5000);
+});
