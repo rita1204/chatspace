@@ -55,35 +55,28 @@ $(function(){
   })
 
   var interval = setInterval(function(){
-    if (window.location.href.match(/\/groups\/\d+\/messages/)){
+    if(window.location.href.match(/\/groups\/\d+\/messages/)){
       var id = $('.comment').last().data('id');
-    $.ajax({
-      url: location.href.json,
-      type: 'GET',
-      data: { id: id },
-      dataType: 'json'
-    })
-    .done(function(json){
-      var insertHTML = "";
-      json.forEach(function(message){
-        if(message.id > id){
-          insertHTML += buildHTML(message);
-          $(".comment-container").append(insertHTML);
-          $('.comment-container').animate({scrollTop:$('.comment').last().offset().top});
-        }
+      $.ajax({
+        url: location.href.json,
+        type: 'GET',
+        data: { id: id },
+        dataType: 'json'
       })
-    })
-    .fail(function(data){
-      alert('error:auto update');
-    });
-  } else {
-    clearInterval(interval);
-  }},5000);
-
-
-
-
-
-
-
+      .done(function(json){
+        var insertHTML = "";
+        json.forEach(function(message){
+          if(message.id > id){
+            insertHTML += buildHTML(message);
+            $(".comment-container").append(insertHTML);
+            $('.comment-container').animate({scrollTop:$('.comment').last().offset().top});
+          }
+        })
+      })
+      .fail(function(data){
+        alert('error:auto update');
+      });
+    } else {
+      clearInterval(interval);
+    }},5000);
 });
