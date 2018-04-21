@@ -55,7 +55,7 @@ $(function(){
   })
 
   var interval = setInterval(function(){
-    if (window.location.href.match(/\/groups\/\d+\/messages/) || (/localhost:3000/)){
+    if (window.location.href.match(/\/groups\/\d+\/messages/)){
       var id = $('.comment').last().data('id');
     $.ajax({
       url: location.href.json,
