@@ -1,6 +1,7 @@
 $(function(){
   function buildHTML(message){
-    var image = `${message.image.url}` != "null" ? `<img src = "${message.image.url}">` : ``
+    var image = `${message.image.url}` != "null" ?
+                `<img src = "${message.image.url}">` : ``
     var html = `<div class="comment" data-id="${message.id}">
                   <div class="comment__header clearfix">
                     <div class="comment__header__title">
